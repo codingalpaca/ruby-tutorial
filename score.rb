@@ -3,6 +3,8 @@
 # 3 -> 刪除成績
 # 4 -> 結束程式
 
+require_relative 'method'
+
 records = [
   { :name => 'John', :score => 90 },
   { :name => 'Alpaca', :score => 100 }
@@ -15,22 +17,11 @@ while true
   command = gets.chomp.to_i
 
   if command == 1
-    records.each do |record|
-      puts record[:name] + '：' + record[:score].to_s + '分'
-    end
+    display records
   elsif command == 2
-    record = {}
-
-    print '請輸入學生的名字：'
-    record[:name] = gets.chomp
-
-    print '請出入要新增的成績：'
-    record[:score] = gets.chomp.to_i
-
-    records.push record
+    create records
   elsif command == 3
-    print '請問要刪除第幾個紀錄：'
-    records.delete_at gets.chomp.to_i - 1
+    delete records
   elsif command == 4
     puts '程式結束！'
     break
