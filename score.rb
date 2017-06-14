@@ -3,11 +3,12 @@
 # 3 -> 刪除成績
 # 4 -> 結束程式
 
+require_relative 'record'
 require_relative 'method'
 
 records = [
-  { :name => 'John', :score => 90 },
-  { :name => 'Alpaca', :score => 100 }
+  Record.new('John', 90),
+  Record.new('Alpaca', 100)
 ]
 
 puts '輸入 1 檢視成績，2 新增成績，3 刪除成績，4 結束程式'
